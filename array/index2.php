@@ -15,7 +15,7 @@ $semua_warna = array_merge(
 
 // unpacking untuk mengekstrak array ....
 $list_buah_lokal = ['mangga','rambutan'];
-$list_buah = ['kurma','anggur',$list_buah_lokal,'kismis']
+$list_buah = ['kurma','anggur',$list_buah_lokal,'kismis'];
 
 // kurma, anggur, mangga, rambutan, kismis
 
@@ -29,7 +29,8 @@ var_dump(explode(" ", $siswa));
 // impload fungsi kebalikannya expload
 // impload dia 2 parameter : glue (penggabung), array sasaran (sasaran yang akan kita gabung menjadi string)
 
+$siswa_pintar = ['refa','agus','novan'];// array
 
-
+$siswa_jago = implode(' ', $siswa_pintar);// string
 
 ?>
