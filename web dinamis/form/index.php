@@ -3,7 +3,7 @@
         <title></title>
     </head>
     <body>
-        <form action="">
+        <form>
             <div>
                 <label>Nama</label><br>
                 <input type="text" name="nama" placeholder="masukin nama">
