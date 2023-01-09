@@ -1,0 +1,68 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-image: url(background.jpg);
+    background-size: cover;
+}
+
+/* tampilan utama */
+
+.container{
+    background-color: white;
+    padding-bottom: 50px;
+    margin: 80px auto;
+    margin-inline: 470px;
+    border-radius: 100px;
+    border: 2px solid black;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
+}
+
+.judul{
+    text-shadow: 2px 2px 2px lightgray;
+}
+
+.sub-judul{
+    text-shadow: 2px 2px 2px lightgray;
+}
+
+.container .judul{
+    margin-top: 50px;
+}
+
+.tombol-admin button{
+    border: none;
+    outline: none;
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    background: #3d7bf6;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px lightgray;;
+}
+
+.tombol-admin button:hover{
+    background: #0055ff;
+    color: #fff;
+}
+
+.tombol-user button{
+    border: none;
+    outline: none;
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    background: #3d7bf6;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px lightgray;;
+}
+
+.tombol-user button:hover{
+    background: #0055ff;
+    color: #fff;
+}

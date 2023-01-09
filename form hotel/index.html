@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box">
+        <form action="proses.php" method="post" enctype="multipart/form-data">
+            <div class="judul">
+                <h1>RESERVATION HOTEL</h1><br><br>
+            </div>
+            <div class="lapisInput">
+            <label>Nama</label>
+            <input type="text" name="nama" placeholder="Masukkan nama">
+        </div>
+        <div class="lapisInput">
+            <label>Alamat</label>
+            <input type="text" name="alamat" placeholder="Masukkan alamat">
+        </div>
+        <div class="lapisInput">
+            <label>Tipe Kamar</label>
+            <select name="tipe">
+                <option value="">Pilih tipe kamar</option>
+                <option value="100000">Per/Malam(Rp.100.000)</option>
+                <option value="200000">Per/Malam(Rp.200.000))</option>
+            </select>
+        </div><br>
+        <div class="lapisInput">
+            <label>Lama Menginap (Harian)</label>
+            <input type="number" name="breakfast" placeholder="Menginap untuk berapa hari">
+        </div>
+        <div class="lapisInput">
+            <label>Foto Diri</label>
+            <input type="file" name="foto">
+        </div>
+        <div class="button">
+            <input type="submit" value="SUBMIT">
+            <input type="reset" value="RESET">
+        </div>
+        </form>
+</div>
+</body>
+</html>
