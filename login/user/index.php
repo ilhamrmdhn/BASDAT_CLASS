@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Admin Page</title>
+        <title>User Page</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css">
     </head>
@@ -15,6 +15,8 @@ if($_SESSION['status']!='login'){
 
 <center><h1 style="text-shadow: 2px 2px 2px lightgray;">Selamat Datang di BUKUSTORE!</h1></center>
 <center></h4></center>
+
+
 <div class="container" style="margin: 70px auto;">
 <div class="row">
     <div class="col-md-10" style="margin-left: 110px;">
@@ -31,7 +33,9 @@ if($_SESSION['status']!='login'){
             </div>
             <div class="card-body" style="margin-right:20px">
 <div class="margin" style="margin-left: 20px;">
-    <h1 style="text-shadow: 2px 2px 2px lightgray; margin-bottom: 30px;">Data Buku</h1>
+
+    <a href="update-anggota.php?id_anggota=<?php echo $nama['id_anggota']?>" class="btn btn-primary" style="margin-top: 10px; box-shadow: 2px 2px 2px lightgray; margin-bottom: 10px;">Customize</a>
+
     <table class="table" border="1" cellpadding="8" cellspacing="0" style="box-shadow: 2px 2px 2px lightgray;">
     <thead class="thead-dark">
         <tr>
@@ -41,6 +45,7 @@ if($_SESSION['status']!='login'){
             <th style="text-align:center;">Pengarang</th>
             <th style="text-align:center;">Tahun terbit</th>
             <th style="text-align:center;">Penerbit</th>
+            <th style="text-align:center;">Aksi</th>
         </tr>
         </thead>
             <?php 
@@ -56,6 +61,10 @@ if($_SESSION['status']!='login'){
             echo "<td>".$penerbit = $row['penerbit']."</td>";
             ?>
             
+            <td>
+            <a href="keranjang.php?id_buku=<?php echo $row['id_buku']; ?>" class="btn btn-warning" style="box-shadow: 2px 2px 2px lightgray;">Add To Cart</a>
+            </td>
+
             <?php
             echo "</tr>";
         }

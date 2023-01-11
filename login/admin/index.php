@@ -11,6 +11,16 @@ session_start();
 if($_SESSION['status']!='login'){
     header('location:login_admin.php?pesan=belum_login');
 }
+
+include '../koneksi.php';
+        // ambil data semua dari table
+        $buku = mysqli_query($koneksi, "select*from buku");
+        $anggota = mysqli_query($koneksi, "select*from anggota");
+
+        // jumlahkan data yang ada di table
+        $jumlah_buku = mysqli_num_rows($buku);
+        $jumlah_anggota = mysqli_num_rows($anggota);
+
 ?>
 
 <center><h1 style="text-shadow: 2px 2px 2px lightgray;">Selamat Datang di BUKUSTORE!</h1></center>
@@ -25,8 +35,19 @@ if($_SESSION['status']!='login'){
             <div class="card-body" style="margin-right:20px">
 <div class="margin" style="margin-left: 20px;">
     <h1 style="text-shadow: 2px 2px 2px lightgray; margin-bottom: 30px;">Data Buku</h1>
+    <h3>Total Buku Tersedia : <?php echo $jumlah_buku; ?></h3>
+    <h3> Total Semua Harga Buku :
+                <?php
+                $db = mysqli_query($koneksi, "SELECT * FROM buku;");
+                while ($r = mysqli_fetch_array($db)) {
+                    $harga[] = $r['harga'];
+                }
+                $totalHarga = array_sum($harga);
+                echo "Rp. " . number_format($totalHarga) . " ,-";
+
+                ?>
+            </h3>
     <a href="tambah.php" class="btn btn-md btn-primary" style="margin-bottom: 10px; box-shadow: 2px 2px 2px lightgray;">Tambah Data Buku</a>
-    <a href="add_anggota.php" class="btn btn-md btn-success" style="margin-bottom: 10px; box-shadow: 2px 2px 2px lightgray;">Tambah Anggota</a>
     <table class="table" border="1" cellpadding="8" cellspacing="0" style="box-shadow: 2px 2px 2px lightgray;">
     <thead class="thead-dark">
         <tr>
@@ -36,6 +57,7 @@ if($_SESSION['status']!='login'){
             <th style="text-align:center;">Pengarang</th>
             <th style="text-align:center;">Tahun terbit</th>
             <th style="text-align:center;">Penerbit</th>
+            <th style="text-align:center;">Harga</th>
             <th style="text-align:center;">Aksi</th>
         </tr>
         </thead>
@@ -50,6 +72,7 @@ if($_SESSION['status']!='login'){
             echo "<td>".$pengarang = $row['pengarang']."</td>";
             echo "<td>".$thn_terbit = $row['thn_terbit']."</td>";
             echo "<td>".$penerbit = $row['penerbit']."</td>";
+            echo "<td>".$harga = $row['harga']."</td>";
             ?>
             <td>
                 <a href="update.php?id_buku=<?php echo $row['id_buku']; ?>" class="btn btn-warning" style="box-shadow: 2px 2px 2px lightgray;">Edit</a>
@@ -68,6 +91,48 @@ if($_SESSION['status']!='login'){
 </div>
 </div>
 </table>
+
+<hr>
+<h1 style="text-shadow: 2px 2px 2px lightgray; margin-bottom: 30px;">Data Buku</h1>
+    <h3>Total Anggota Tersedia : <?php echo $jumlah_anggota; ?></h3>
+    <a href="add_anggota.php" class="btn btn-md btn-success" style="margin-bottom: 10px; box-shadow: 2px 2px 2px lightgray;">Tambah Anggota</a>
+    <table class="table" border="1" cellpadding="8" cellspacing="0" style="box-shadow: 2px 2px 2px lightgray;">
+    <thead class="thead-dark">
+        <tr>
+            <th style="text-align:center;">ID Anggota</th>
+            <th style="text-align:center;">Nama</th>
+            <th style="text-align:center;">No Telepon</th>
+            <th style="text-align:center;">Alamat</th>
+            <th style="text-align:center;">Email</th>
+            <th style="text-align:center;">Password</th>
+        </tr>
+        </thead>
+            <?php 
+        include '../koneksi.php';
+        $anggota = mysqli_query($koneksi, "select*from anggota");
+        foreach($anggota as $rou){
+            echo "<tr>";
+            echo "<td>" . $rou['id_anggota'] ."</td>";
+            echo "<td>" . $rou['nama']."</td>";
+            echo "<td>" . $rou['no_telp']."</td>";
+            echo "<td>" . $rou['alamat']."</td>";
+            echo "<td>" . $rou['email']."</td>";
+            echo "<td>" . $rou['password']."</td>";
+            ?>
+            
+            <?php
+            echo "</tr>";
+        }
+        
+        ?>
+        </tr>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</table>
+
 <a href="../logout.php" class="btn btn-dark" style="margin-top: 10px; box-shadow: 2px 2px 2px lightgray; margin-bottom:10px;">LOGOUT</a>
 </div>
 </body>

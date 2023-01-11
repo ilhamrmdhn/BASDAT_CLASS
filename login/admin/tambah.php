@@ -23,6 +23,9 @@
                 <label>Masukkan Penerbit</label>
                 <input type="text" name="penerbit">
                 <br>
+                <label>Masukkan Harga</label>
+                <input type="number" name="harga">
+                <br>
             </div>
 
             <div class="tombol-login">

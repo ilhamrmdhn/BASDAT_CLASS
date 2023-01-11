@@ -23,6 +23,9 @@
                 <div class="klik">
                     <label>admin klik <a href="../admin/login_admin.php">disini!</a></label>
                 </div>
+                <div class="klik">
+                    <label>anda belum punya akun? daftar <a href="daftar.php">disini!</a></label>
+                </div>
             </form>
         </div>
     </body>

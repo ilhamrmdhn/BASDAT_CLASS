@@ -35,6 +35,9 @@
                 <label>Masukkan Penerbit</label>
                 <input type="text" name="penerbit" value="<?php echo $meledak['penerbit']; ?>">
                 <br>
+                <label>Masukkan Harga</label>
+                <input type="number" name="harga" value="<?php echo $meledak['harga']; ?>">
+                <br>
             </div>
 
             <div class="tombol-login">
